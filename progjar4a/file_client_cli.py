@@ -73,7 +73,7 @@ def pokijan_download():
         print(f"Iteration - {i} Download {pokijan_file} \n")
         process[i] = Process(target=remote_get, args=(pokijan_file,))
         process[i].start()
-    for i in urls:
+    for i in range(100):
         process[i].join()
     end_time = datetime.datetime.now()
     duration = end_time - start_time
