@@ -77,7 +77,7 @@ def pokijan_download():
         process[i].join()
     end_time = datetime.datetime.now()
     duration = end_time - start_time
-    print(f"Waktu TOTAL yang dibutuhkan {duration} detik {start_time} s/d {end_time}")
+    print(f"Total time needed: {duration} seconds")
 
 
 #fungsi download_gambar akan dijalankan secara multi process
