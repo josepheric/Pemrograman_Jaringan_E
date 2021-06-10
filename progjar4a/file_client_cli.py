@@ -2,8 +2,11 @@ import socket
 import json
 import base64
 import logging
+import time
+import datetime
+from multiprocessing import Process
 
-server_address=('0.0.0.0',7777)
+server_address=('192.168.122.188',6666)
 
 def send_command(command_str=""):
     global server_address
@@ -62,10 +65,29 @@ def remote_get(filename=""):
     else:
         print("Gagal")
         return False
+def pokijan_download():
+    process = dict()
+    pokijan_file = 'pokijan.jpg'
+    start_time = datetime.datetime.now()
+    for i in range(100):
+        print(f"Iteration - {i} Download {pokijan_file} \n")
+        process[i] = Process(target=remote_get, args=(pokijan_file,))
+        process[i].start()
+    for i in urls:
+        process[i].join()
+    end_time = datetime.datetime.now()
+    duration = end_time - start_time
+    print(f"Waktu TOTAL yang dibutuhkan {duration} detik {start_time} s/d {end_time}")
 
 
+#fungsi download_gambar akan dijalankan secara multi process
 if __name__=='__main__':
-    server_address=('0.0.0.0',6666)
-    remote_list()
-    #remote_get('donalbebek.jpg')
+    pokijan_download()
+
+
+
+# if __name__=='__main__':
+#     server_address=('0.0.0.0',6666)
+#     remote_list()
+#     #remote_get('donalbebek.jpg')
 
