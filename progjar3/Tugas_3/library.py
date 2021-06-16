@@ -8,7 +8,6 @@ import datetime
 
 def get_url_list():
     urls = dict()
-    urls['kompas']='https://asset.kompas.com/crops/qz_jJxyaZgGgboomdCEXsfbSpec=/0x0:998x665/740x500/data/photo/2020/03/01/5e5b52f4db896.jpg'
     urls['cat']='https://avatarfiles.alphacoders.com/121/thumb-1920-121594.jpg'
     return urls
 
@@ -43,7 +42,7 @@ def download_gambar(url=None,tuliskefile='image'):
     else:
         return False
 
-def kirim_gambar(IP_ADDRESS, PORT, filename):
+def send_file(IP_ADDRESS, PORT, filename):
     print(IP_ADDRESS, PORT, filename)
     ukuran=os.stat(filename).st_size
     clientSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

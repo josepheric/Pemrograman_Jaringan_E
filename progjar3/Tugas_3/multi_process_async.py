@@ -1,4 +1,4 @@
-from library import download_gambar, get_url_list, kirim_gambar
+from library import download_gambar, get_url_list, send_file
 import time
 import datetime
 from multiprocessing import Process, Pool
@@ -16,7 +16,7 @@ def kirim_semua():
     for k in urls:
         download_gambar(urls[k],k)
         print(f"mendownload {urls[k]}")
-        texec[k] = task_pool.apply_async(func=kirim_gambar, args=(IP_SERVER, PORT, f"{k}.jpg"))
+        texec[k] = task_pool.apply_async(func=send_file, args=(IP_SERVER, PORT, f"{k}.jpg"))
         print('send to server succesful')
 
     #setelah menyelesaikan tugasnya, dikembalikan ke main process dengan mengambil hasilnya dengan get
