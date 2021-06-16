@@ -5,13 +5,13 @@ import time
 import datetime
 import socket
 
-IPSERVER = "192."
-PORT = ''
+IPSERVER = '192.168.122.95'
+PORT = '5050'
 
 def get_url_list():
     urls = dict()
     urls['kompas']='https://asset.kompas.com/crops/qz_jJxyaZgGgboomdCEXsfbSpec=/0x0:998x665/740x500/data/photo/2020/03/01/5e5b52f4db896.jpg'
-    urls['its']='https://www.its.ac.id/wp-content/uploads/2017/10/logo-its-1.png'
+    urls['cat']='https://i.gzn.jp/img/2019/02/22/this-cat-does-not-exist/s10.jpg'
     return urls
 
 
