@@ -1,18 +1,16 @@
 import logging
 import requests
+import socket
 import os
 import time
 import datetime
-import socket
 
-#before change
-IPSERVER = '192.168.122.95'
-PORT = '5050'
 
 def get_url_list():
     urls = dict()
     urls['kompas']='https://asset.kompas.com/crops/qz_jJxyaZgGgboomdCEXsfbSpec=/0x0:998x665/740x500/data/photo/2020/03/01/5e5b52f4db896.jpg'
-    urls['cat']='https://i.gzn.jp/img/2019/02/22/this-cat-does-not-exist/s10.jpg'
+#    urls['its']='https://awsimages.detik.net.id/customthumb/2012/03/02/398/ITS-Tech-dalam.jpg'
+    urls['detik']='https://awscdn.detik.net.id/detik2/images/logo.jpg'
     return urls
 
 
@@ -28,7 +26,7 @@ def download_gambar(url=None,tuliskefile='image'):
     tipe['image/jpeg']='jpg'
     tipe['application/zip']='jpg'
     tipe['video/quicktime']='mov'
-    # time.sleep(2) #untuk simulasi, diberi tambahan delay 2 detik
+#    time.sleep(2) #untuk simulasi, diberi tambahan delay 2 detik
 
     content_type = ff.headers['Content-Type']
     logging.warning(content_type)
@@ -36,30 +34,29 @@ def download_gambar(url=None,tuliskefile='image'):
         namafile = os.path.basename(url)
         ekstensi = tipe[content_type]
         if (tuliskefile):
-            fp = open(f"{namafile}.{ekstensi}","wb")
+            fp = open(f"{tuliskefile}.{ekstensi}","wb")
             fp.write(ff.content)
             fp.close()
         waktu_process = datetime.datetime.now() - waktu_awal
         waktu_akhir =datetime.datetime.now()
-        logging.warning(f"writing {namafile}.{ekstensi} dalam waktu {waktu_process} {waktu_awal} s/d {waktu_akhir}")
+        logging.warning(f"writing {tuliskefile}.{ekstensi} dalam waktu {waktu_process} {waktu_awal} s/d {waktu_akhir}")
         return waktu_process
     else:
         return False
 
-
-def send_file(PORT, filename):
-    print(filename)
+def kirim_gambar(IP_ADDRESS, PORT, filename):
+    print(IP_ADDRESS, PORT, filename)
     ukuran=os.stat(filename).st_size
     clientSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
     fp=open(filename,'rb')
     k=fp.read()
     terkirim=0
     for x in k:
         k_bytes=bytes([x])
-        clientSock.sendto(k_bytes,(IPSERVER,PORT))
+        clientSock.sendto(k_bytes,(IP_ADDRESS,PORT))
         terkirim=terkirim+1
-    print(k_bytes,f"terkirim {terkirim} of {ukuran}")
-
+#        print(k_bytes,f"terkirim {terkirim} of {ukuran}")
 
 
 if __name__=='__main__':
