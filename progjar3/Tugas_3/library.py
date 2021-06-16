@@ -27,7 +27,7 @@ def download_gambar(url=None,tuliskefile='image'):
     tipe['image/jpeg']='jpg'
     tipe['application/zip']='jpg'
     tipe['video/quicktime']='mov'
-    time.sleep(2) #untuk simulasi, diberi tambahan delay 2 detik
+    # time.sleep(2) #untuk simulasi, diberi tambahan delay 2 detik
 
     content_type = ff.headers['Content-Type']
     logging.warning(content_type)
