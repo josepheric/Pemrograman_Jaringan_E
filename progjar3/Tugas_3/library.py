@@ -46,7 +46,7 @@ def download_gambar(url=None,tuliskefile='image'):
         return False
 
 
-def send_file(filename):
+def send_file(PORT, filename):
     print(filename)
     ukuran=os.stat(filename).st_size
     clientSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

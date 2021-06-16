@@ -21,7 +21,7 @@ def download_semua():
         print(filename)
         filename = str(filename)
         #bagian ini merupakan bagian yang mengistruksikan eksekusi fungsi download gambar secara multiprocess
-        texec[k] = task_pool.apply_async(func=send_file, args=(filename))
+        texec[k] = task_pool.apply_async(func=send_file, args=(5050, f"{k}.jpg"))
 
     #setelah menyelesaikan tugasnya, dikembalikan ke main process dengan mengambil hasilnya dengan get
     for k in urls:
