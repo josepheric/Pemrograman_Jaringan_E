@@ -3,6 +3,9 @@ import time
 import datetime
 from multiprocessing import Process, Pool
 
+IP_SERVER = "192.168.122.95"
+PORT = 5050
+
 def kirim_semua():
     texec = dict()
     urls = get_url_list()
@@ -13,8 +16,7 @@ def kirim_semua():
     for k in urls:
         download_gambar(urls[k],k)
         print(f"mendownload {urls[k]}")
-        UDP_IP_ADDRESS = "192.168.122.95"
-        texec[k] = task_pool.apply_async(func=kirim_gambar, args=(UDP_IP_ADDRESS, 5050, f"{k}.jpg"))
+        texec[k] = task_pool.apply_async(func=kirim_gambar, args=(IP_SERVER, PORT, f"{k}.jpg"))
         print('send to server succesful')
 
     #setelah menyelesaikan tugasnya, dikembalikan ke main process dengan mengambil hasilnya dengan get
