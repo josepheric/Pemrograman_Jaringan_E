@@ -9,7 +9,6 @@ PORT = 5050
 def kirim_semua():
     texec = dict()
     urls = get_url_list()
-    temp = 0
     status_task = dict()
     task_pool = Pool(processes=20) #2 task yang dapat dikerjakan secara simultan, dapat diset sesuai jumlah core
     catat_awal = datetime.datetime.now()

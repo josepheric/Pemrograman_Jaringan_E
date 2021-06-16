@@ -44,7 +44,6 @@ def download_gambar(url=None,tuliskefile='image'):
 
 def send_file(IP_ADDRESS, PORT, filename):
     print(IP_ADDRESS, PORT, filename)
-    ukuran=os.stat(filename).st_size
     clientSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     fp=open(filename,'rb')
@@ -54,7 +53,7 @@ def send_file(IP_ADDRESS, PORT, filename):
         k_bytes=bytes([x])
         clientSock.sendto(k_bytes,(IP_ADDRESS,PORT))
         terkirim=terkirim+1
-#        print(k_bytes,f"terkirim {terkirim} of {ukuran}")
+
 
 
 if __name__=='__main__':
