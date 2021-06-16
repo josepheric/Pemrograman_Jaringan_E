@@ -9,8 +9,7 @@ import datetime
 def get_url_list():
     urls = dict()
     urls['kompas']='https://asset.kompas.com/crops/qz_jJxyaZgGgboomdCEXsfbSpec=/0x0:998x665/740x500/data/photo/2020/03/01/5e5b52f4db896.jpg'
-#    urls['its']='https://awsimages.detik.net.id/customthumb/2012/03/02/398/ITS-Tech-dalam.jpg'
-    urls['detik']='https://awscdn.detik.net.id/detik2/images/logo.jpg'
+    urls['cat']='https://avatarfiles.alphacoders.com/121/thumb-1920-121594.jpg'
     return urls
 
 
