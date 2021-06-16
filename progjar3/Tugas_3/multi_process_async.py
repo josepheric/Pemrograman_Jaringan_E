@@ -13,15 +13,14 @@ def kirim_semua():
     for k in urls:
         download_gambar(urls[k],k)
         print(f"mendownload {urls[k]}")
-        UDP_IP_ADDRESS = "192.168.122.235"
-        UDP_IP_ADDRESS2 = "192.168.122.107"
+        UDP_IP_ADDRESS = "192.168.122.95"
         if temp == 0:
             texec[k] = task_pool.apply_async(func=kirim_gambar, args=(UDP_IP_ADDRESS, 5050, f"{k}.jpg"))
             print('masuk server 1')
-            temp = temp + 1
-        elif temp == 1:
-            print('masuk server 2')
-            texec[k] = task_pool.apply_async(func=kirim_gambar, args=(UDP_IP_ADDRESS2, 5050, f"{k}.jpg"))
+        #     temp = temp + 1
+        # elif temp == 1:
+        #     print('masuk server 2')
+        #     texec[k] = task_pool.apply_async(func=kirim_gambar, args=(UDP_IP_ADDRESS2, 5050, f"{k}.jpg"))
         #bagian ini merupakan bagian yang mengistruksikan eksekusi fungsi download gambar secara multiprocess
         # texec[k] = task_pool.apply_async(func=download_gambar, args=(urls[k],))
 
