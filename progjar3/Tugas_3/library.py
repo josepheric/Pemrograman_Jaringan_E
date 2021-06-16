@@ -5,6 +5,7 @@ import time
 import datetime
 import socket
 
+#before change
 IPSERVER = '192.168.122.95'
 PORT = '5050'
 
