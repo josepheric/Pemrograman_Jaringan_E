@@ -15,7 +15,7 @@ def kirim_semua():
         print(f"completed {waktu_proses} detik")
 
         send_file(IP_SERVER, PORT, f"{k}.jpg")
-        print('masuk server 1')
+        print('send to server succesfully')
     selesai = datetime.datetime.now() - catat
     print(f"Waktu TOTAL yang dibutuhkan {selesai} detik")
 
