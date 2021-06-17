@@ -1,7 +1,7 @@
 # Server
 import socket
 
-IP_ADDRESS = '192.168.122.95'
+IP_ADDRESS = '192.168.122.244'
 PORT = 5050
 
 serverSock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)

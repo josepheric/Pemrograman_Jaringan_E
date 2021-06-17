@@ -3,7 +3,7 @@ import time
 import datetime
 from multiprocessing import Process, Pool
 
-IP_SERVER = "192.168.122.95"
+IP_SERVER = "192.168.122.244"
 PORT = 5050
 
 def kirim_semua():
