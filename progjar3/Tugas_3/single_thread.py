@@ -5,7 +5,7 @@ import datetime
 IP_SERVER = "192.168.122.244"
 PORT = 5050
 
-def kirim_semua():
+def send_all():
     urls = get_url_list()
     catat = datetime.datetime.now()
     for k in urls:
@@ -23,4 +23,4 @@ def kirim_semua():
 #fungsi download_gambar akan dijalankan secara berurutan
 
 if __name__=='__main__':
-    kirim_semua()
+    send_all()

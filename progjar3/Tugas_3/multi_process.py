@@ -6,7 +6,7 @@ from multiprocessing import Process
 IP_SERVER = "192.168.122.244"
 PORT = 5050
 
-def kirim_semua():
+def send_all():
     texec = dict()
     urls = get_url_list()
     catat_awal = datetime.datetime.now()
@@ -26,4 +26,4 @@ def kirim_semua():
     print(f"Waktu TOTAL yang dibutuhkan {selesai} detik {catat_awal} s/d {catat_akhir}")
 #fungsi download_gambar akan dijalankan secara multi process
 if __name__=='__main__':
-    kirim_semua()
+    send_all()
