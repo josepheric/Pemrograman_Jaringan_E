@@ -1,21 +1,21 @@
-from library import download_gambar,get_url_list
+from library import download_gambar,get_url_list,send_file
 import time
 import datetime
 import threading
 
+IP_SERVER = "192.168.122.244"
+PORT = 5050
 
-
-
-def download_semua():
+def kirim_semua():
     texec = dict()
     urls = get_url_list()
-
     catat_awal = datetime.datetime.now()
     for k in urls:
+        download_gambar(urls[k], k)
         print(f"mendownload {urls[k]}")
-        waktu = time.time()
         #bagian ini merupakan bagian yang mengistruksikan eksekusi fungsi download gambar secara multithread
-        texec[k] = threading.Thread(target=download_gambar, args=(urls[k],))
+        texec[k] = threading.Thread(target=send_file, args=(IP_SERVER, PORT, f"{k}.jpg"))
+        print('send file succesfully')
         texec[k].start()
 
     #setelah menyelesaikan tugasnya, dikembalikan ke main thread dengan join
@@ -30,4 +30,4 @@ def download_semua():
 #fungsi download_gambar akan dijalankan secara multithreading
 
 if __name__=='__main__':
-    download_semua()
+    kirim_semua()
